@@ -11,7 +11,7 @@ class FileDownloadController extends Controller
     public function download(Request $request)
     {
         $file = File::where('uuid', $request->uuid)->firstOrFail();
-
+        $temp = 0;
         // Prevent downloading private files, except by the logged-in owner
         if (!$file->public && ($file->user_id !== auth()->id() || auth()->guest())) {
             abort(404);
