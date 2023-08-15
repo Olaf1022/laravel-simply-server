@@ -28,5 +28,3 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
         return view('upload');
     })->name('upload');
 });
-
-Route::get('/d/{uuid}/{name}', [FileDownloadController::class, 'download'])->name('download');
